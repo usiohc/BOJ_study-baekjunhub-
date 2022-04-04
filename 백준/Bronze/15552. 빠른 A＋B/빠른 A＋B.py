@@ -1,11 +1,5 @@
 import sys
+input = sys.stdin.readline
 
-t = int(input())
-tlist = []
-
-for i in range(t):
-    a, b = map(int, sys.stdin.readline().split())
-    tlist.append(a+b)
-
-for i in tlist:
-    print(i)
+for _ in range(int(input())):
+    print(sum(list(map(int, input().split()))))
