@@ -1,17 +1,8 @@
-temp_str = input().lower()
-temp_dic = {chr(i): 0 for i in range(ord('a'), ord('z')+1)}
+temp_str = input().upper()
+temp_list = list(set(temp_str))
+temp_count = [temp_str.count(i) for i in temp_list]
 
-for i in temp_str:
-    if i in temp_dic:
-        temp_dic[i] += 1
-
-same_value = []
-for k, v in temp_dic.items():
-    if v == max(temp_dic.values()):
-        same_value.append(v)
-        key = k
-
-if len(same_value) > 1:
+if temp_count.count(max(temp_count)) > 1:
     print('?')
 else:
-    print(key.upper())
+    print(temp_list[temp_count.index(max(temp_count))])
