@@ -8,7 +8,7 @@ def bfs(a, b, x, y):
         q = queue.popleft()
         x, y = q
 
-        if graph[a][b] > 0:
+        if a==x and b==y:
             break
         for i in range(8):
             nx = x+dx[i]
@@ -17,19 +17,18 @@ def bfs(a, b, x, y):
             if nx<=-1 or nx>=l or ny<=-1 or ny>=l:
                 continue
 
-            if graph[nx][ny] < graph[x][y]:
+            if graph[nx][ny]==0:
                 graph[nx][ny] = graph[x][y]+1
                 queue.append((nx, ny))
 
-                
 dx = [-1, -2,-2,-1, 1, 2, 2, 1]
 dy = [-2, -1, 1, 2,-2,-1, 1, 2]
 for _ in range(int(input())):
     l = int(input())
     graph = [[0] * l for _ in range(l)]
-
     a, b = map(int, input().split())
     x, y = map(int, input().split())
     graph[x][y] = 1
+    
     bfs(a, b, x, y)
     print(graph[a][b]-1)
