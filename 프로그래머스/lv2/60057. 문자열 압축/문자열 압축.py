@@ -1,7 +1,6 @@
-from re import findall
-
 def solution(s):
     answer = len(s)
+    
     if answer == 1:
         return answer 
     
@@ -23,5 +22,5 @@ def solution(s):
                 if v > 1:
                     leng += len(str(v))
         answer = min(answer, leng)
-
+        
     return answer
