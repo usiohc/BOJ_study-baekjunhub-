@@ -1,6 +1,11 @@
 s = list(map(int, input()))
-cnt = 0
+
+lst = [s[0]]
+
 for i in range(1, len(s)):
-    if s[i-1] != s[i]:
-        cnt +=1
-print((cnt+1) // 2)
+    if lst[-1] != s[i]:
+        lst.append(s[i])
+if len(lst)==1:
+    print(0)
+else:
+    print(min(lst.count(1), lst.count(0)))
