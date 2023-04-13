@@ -2,9 +2,10 @@ def solution(participant, completion):
     hash_result = 0
     dic = {}
     for e in participant:
-        dic[hash(e)] = e
-        hash_result += hash(e)
+        dic[e] = dic.get(e, 0) +1
     for e in completion:
-        hash_result -= hash(e)
+        dic[e] -= 1
     
-    return dic[hash_result]
+    answer = [k for k, v in dic.items() if v > 0]
+    
+    return answer[-1]
